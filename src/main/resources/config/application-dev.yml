@@ -48,7 +48,7 @@ spring:
       # it can be set to any label, branch or commit of the configuration source Git repository
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://34.72.201.64
+    url: jdbc:postgresql://34.72.201.64/postgres
     username: postgres
     password: prueba1234
     hikari:
