@@ -1,0 +1,30 @@
+{
+  "proyectoBethelApp": {
+    "userProgram": {
+      "home": {
+        "title": "User Programs",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo User Program",
+        "createOrEditLabel": "Crear o editar User Program",
+        "notFound": "Ningún User Programs encontrado"
+      },
+      "created": "Un nuevo User Program ha sido creado con el identificador {{ param }}",
+      "updated": "Un User Program ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un User Program ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar User Program {{ id }}?"
+      },
+      "detail": {
+        "title": "User Program"
+      },
+      "id": "ID",
+      "user": "User",
+      "active": "Active",
+      "createById": "Create By Id",
+      "createdDate": "Created Date",
+      "lastModifiedById": "Last Modified By Id",
+      "lastModifiedDate": "Last Modified Date",
+      "catProgram": "Cat Program"
+    }
+  }
+}

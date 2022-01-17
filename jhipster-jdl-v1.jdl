@@ -1,0 +1,129 @@
+
+entity Content {
+
+	recordingDate ZonedDateTime
+    editionDate ZonedDateTime
+	signatureOriginal String
+    signatureEdited String
+	eventReason String
+    eventSlogan String
+    nameConduction String
+    positionConduction String
+    specialtiesPanel String
+    namePanel String
+    titleSubject String
+    biblicalPassage String
+    synopsisDescription String
+    storyline String
+    mediaContent String
+    durationOriginal Duration
+    durationEdited Duration
+    scenography String
+    location String
+    city String
+    departmentState String
+    producer String
+    productionAssistant String
+	operatorVTRPlayOut String
+    productionCredits String
+    castActors String
+    archiveStatus String
+    interpreterTranslator String
+    dubbing String
+    subtitleCC String
+    cataloguerOriginal String
+    cataloguerEdited String
+    postproductionEditor String
+    operatorIngestion String
+    serviceOTT Boolean
+    archivadoLTOOriginal Boolean
+    archivadoLTOEdited Boolean
+    observations String
+    rightsManagement String
+    cataloguerProduction String
+    cataloguerIngest String
+    cataloguerMaster String
+    urlEdition String
+    urlOriginal String
+    createById Integer
+    createdDate ZonedDateTime
+    lastModifiedById Integer
+    lastModifiedDate ZonedDateTime
+}
+
+entity ContentTag {
+    createById Integer
+    createdDate ZonedDateTime
+    lastModifiedById Integer
+    lastModifiedDate ZonedDateTime
+}
+
+entity UserProgram {
+	user Integer
+    active Boolean
+    createById Integer
+    createdDate ZonedDateTime
+    lastModifiedById Integer
+    lastModifiedDate ZonedDateTime
+}
+
+
+entity Catalog {
+	code String
+	name String
+	description String
+    active Boolean
+    createById Integer
+    createdDate ZonedDateTime
+    lastModifiedById Integer
+    lastModifiedDate ZonedDateTime
+}
+
+
+relationship ManyToOne {
+	UserProgram{catProgram} to Catalog
+    Catalog{parentId} to Catalog
+    Content{catContentType} to Catalog
+    Content{catTypeConduction} to Catalog
+    Content{catProgram } to Catalog
+    Content{catShiftRecording } to Catalog
+    Content{catTargetAudience } to Catalog
+    Content{catCountry } to Catalog
+    Content{catProductionCompany } to Catalog
+    Content{catArchivalCollection } to Catalog
+    Content{catOriginalLanguage } to Catalog
+    Content{catInterpreterLanguage } to Catalog 
+    Content{catDubbingLanguage } to Catalog
+    Content{catSubtitleLanguage } to Catalog
+    Content{catTvCensorship } to Catalog
+    Content{catClassificationCategory } to Catalog
+    Content{catGenreProgram } to Catalog
+    Content{catFormatProgram } to Catalog
+    Content{catResolutionOriginal } to Catalog
+    Content{catResolutionEdited } to Catalog
+    Content{catCatalogingLevelOriginal } to Catalog
+    Content{catCatalogingLevelEdited } to Catalog
+    Content{catVideoQuality } to Catalog
+    Content{catAudioQuality } to Catalog
+    Content{catMusicalGroup } to Catalog
+    Content{catMusicalGenre } to Catalog
+    Content{catApproved } to Catalog
+}
+
+relationship OneToMany {
+	Content{catTags} to ContentTag{contentId required}
+    Catalog to ContentTag{catalogId required}
+}
+
+
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+
+paginate Content, Catalog, UserProgram, ContentTag with pagination
+// Use Data Transfer Objects (DTO)
+ dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+// Set an angular suffix
+// angularSuffix * with mySuffix

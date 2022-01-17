@@ -1,0 +1,61 @@
+{
+  "name": "Catalog",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "createById",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "lastModifiedById",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "contentTag",
+      "otherEntityRelationshipName": "catalogId",
+      "relationshipName": "contentTag"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "catalog",
+      "relationshipName": "parentId"
+    }
+  ],
+  "entityTableName": "catalog",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220117035117"
+}

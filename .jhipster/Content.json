@@ -1,0 +1,365 @@
+{
+  "name": "Content",
+  "fields": [
+    {
+      "fieldName": "recordingDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "editionDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "signatureOriginal",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "signatureEdited",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "eventReason",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "eventSlogan",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nameConduction",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "positionConduction",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "specialtiesPanel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "namePanel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "titleSubject",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "biblicalPassage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "synopsisDescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "storyline",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mediaContent",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "durationOriginal",
+      "fieldType": "Duration"
+    },
+    {
+      "fieldName": "durationEdited",
+      "fieldType": "Duration"
+    },
+    {
+      "fieldName": "scenography",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "location",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "departmentState",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "producer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productionAssistant",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "operatorVTRPlayOut",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productionCredits",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "castActors",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "archiveStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "interpreterTranslator",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dubbing",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subtitleCC",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cataloguerOriginal",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cataloguerEdited",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "postproductionEditor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "operatorIngestion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "serviceOTT",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "archivadoLTOOriginal",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "archivadoLTOEdited",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "observations",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "rightsManagement",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cataloguerProduction",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cataloguerIngest",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cataloguerMaster",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "urlEdition",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "urlOriginal",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createById",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "lastModifiedById",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "contentTag",
+      "otherEntityRelationshipName": "contentId",
+      "relationshipName": "catTags"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catContentType"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catTypeConduction"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catProgram"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catShiftRecording"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catTargetAudience"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catCountry"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catProductionCompany"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catArchivalCollection"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catOriginalLanguage"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catInterpreterLanguage"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catDubbingLanguage"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catSubtitleLanguage"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catTvCensorship"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catClassificationCategory"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catGenreProgram"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catFormatProgram"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catResolutionOriginal"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catResolutionEdited"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catCatalogingLevelOriginal"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catCatalogingLevelEdited"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catVideoQuality"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catAudioQuality"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catMusicalGroup"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catMusicalGenre"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "content",
+      "relationshipName": "catApproved"
+    }
+  ],
+  "entityTableName": "content",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220117035114"
+}

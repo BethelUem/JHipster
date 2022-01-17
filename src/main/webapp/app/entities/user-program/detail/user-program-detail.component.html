@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="userProgram">
+      <h2 data-cy="userProgramDetailsHeading"><span jhiTranslate="proyectoBethelApp.userProgram.detail.title">User Program</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ userProgram.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.userProgram.user">User</span></dt>
+        <dd>
+          <span>{{ userProgram.user }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.userProgram.active">Active</span></dt>
+        <dd>
+          <span>{{ userProgram.active }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.userProgram.createById">Create By Id</span></dt>
+        <dd>
+          <span>{{ userProgram.createById }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.userProgram.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ userProgram.createdDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.userProgram.lastModifiedById">Last Modified By Id</span></dt>
+        <dd>
+          <span>{{ userProgram.lastModifiedById }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.userProgram.lastModifiedDate">Last Modified Date</span></dt>
+        <dd>
+          <span>{{ userProgram.lastModifiedDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.userProgram.catProgram">Cat Program</span></dt>
+        <dd>
+          <div *ngIf="userProgram.catProgram">
+            <a [routerLink]="['/catalog', userProgram.catProgram?.id, 'view']">{{ userProgram.catProgram?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/user-program', userProgram.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

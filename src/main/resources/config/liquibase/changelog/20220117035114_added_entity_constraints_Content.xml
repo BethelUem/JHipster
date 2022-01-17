@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Content.
+    -->
+    <changeSet id="20220117035114-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="cat_content_type_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_content_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_type_conduction_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_type_conduction_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_program_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_program_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_shift_recording_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_shift_recording_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_target_audience_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_target_audience_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_country_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_country_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_production_company_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_production_company_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_archival_collection_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_archival_collection_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_original_language_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_original_language_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_interpreter_language_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_interpreter_language_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_dubbing_language_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_dubbing_language_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_subtitle_language_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_subtitle_language_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_tv_censorship_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_tv_censorship_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_classification_category_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_classification_category_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_genre_program_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_genre_program_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_format_program_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_format_program_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_resolution_original_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_resolution_original_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_resolution_edited_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_resolution_edited_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_cataloging_level_original_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_cataloging_level_original_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_cataloging_level_edited_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_cataloging_level_edited_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_video_quality_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_video_quality_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_audio_quality_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_audio_quality_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_musical_group_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_musical_group_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_musical_genre_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_musical_genre_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+
+        <addForeignKeyConstraint baseColumnNames="cat_approved_id"
+                                 baseTableName="content"
+                                 constraintName="fk_content__cat_approved_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+    </changeSet>
+</databaseChangeLog>

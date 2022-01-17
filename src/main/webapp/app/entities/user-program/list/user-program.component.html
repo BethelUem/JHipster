@@ -1,0 +1,126 @@
+<div>
+  <h2 id="page-heading" data-cy="UserProgramHeading">
+    <span jhiTranslate="proyectoBethelApp.userProgram.home.title">User Programs</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="proyectoBethelApp.userProgram.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-user-program"
+        [routerLink]="['/user-program/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="proyectoBethelApp.userProgram.home.createLabel"> Create a new User Program </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="userPrograms?.length === 0">
+    <span jhiTranslate="proyectoBethelApp.userProgram.home.notFound">No userPrograms found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="userPrograms && userPrograms.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="user">
+            <span jhiTranslate="proyectoBethelApp.userProgram.user">User</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="active">
+            <span jhiTranslate="proyectoBethelApp.userProgram.active">Active</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="createById">
+            <span jhiTranslate="proyectoBethelApp.userProgram.createById">Create By Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="createdDate">
+            <span jhiTranslate="proyectoBethelApp.userProgram.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedById">
+            <span jhiTranslate="proyectoBethelApp.userProgram.lastModifiedById">Last Modified By Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedDate">
+            <span jhiTranslate="proyectoBethelApp.userProgram.lastModifiedDate">Last Modified Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catProgram.id">
+            <span jhiTranslate="proyectoBethelApp.userProgram.catProgram">Cat Program</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let userProgram of userPrograms; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/user-program', userProgram.id, 'view']">{{ userProgram.id }}</a>
+          </td>
+          <td>{{ userProgram.user }}</td>
+          <td>{{ userProgram.active }}</td>
+          <td>{{ userProgram.createById }}</td>
+          <td>{{ userProgram.createdDate | formatMediumDatetime }}</td>
+          <td>{{ userProgram.lastModifiedById }}</td>
+          <td>{{ userProgram.lastModifiedDate | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="userProgram.catProgram">
+              <a [routerLink]="['/catalog', userProgram.catProgram?.id, 'view']">{{ userProgram.catProgram?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/user-program', userProgram.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/user-program', userProgram.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(userProgram)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="userPrograms && userPrograms.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

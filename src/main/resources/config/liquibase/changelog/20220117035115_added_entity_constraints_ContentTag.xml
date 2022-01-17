@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity ContentTag.
+    -->
+    <changeSet id="20220117035115-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="content_id_id"
+                                 baseTableName="content_tag"
+                                 constraintName="fk_content_tag__content_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="content"/>
+
+        <addForeignKeyConstraint baseColumnNames="catalog_id_id"
+                                 baseTableName="content_tag"
+                                 constraintName="fk_content_tag__catalog_id_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalog"/>
+    </changeSet>
+</databaseChangeLog>

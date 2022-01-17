@@ -1,0 +1,1233 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-content-heading" data-cy="ContentCreateUpdateHeading" jhiTranslate="proyectoBethelApp.content.home.createOrEditLabel">
+        Create or edit a Content
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.recordingDate" for="field_recordingDate"
+            >Recording Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_recordingDate"
+              data-cy="recordingDate"
+              type="datetime-local"
+              class="form-control"
+              name="recordingDate"
+              formControlName="recordingDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.editionDate" for="field_editionDate"
+            >Edition Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_editionDate"
+              data-cy="editionDate"
+              type="datetime-local"
+              class="form-control"
+              name="editionDate"
+              formControlName="editionDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.signatureOriginal" for="field_signatureOriginal"
+            >Signature Original</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="signatureOriginal"
+            id="field_signatureOriginal"
+            data-cy="signatureOriginal"
+            formControlName="signatureOriginal"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.signatureEdited" for="field_signatureEdited"
+            >Signature Edited</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="signatureEdited"
+            id="field_signatureEdited"
+            data-cy="signatureEdited"
+            formControlName="signatureEdited"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.eventReason" for="field_eventReason"
+            >Event Reason</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="eventReason"
+            id="field_eventReason"
+            data-cy="eventReason"
+            formControlName="eventReason"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.eventSlogan" for="field_eventSlogan"
+            >Event Slogan</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="eventSlogan"
+            id="field_eventSlogan"
+            data-cy="eventSlogan"
+            formControlName="eventSlogan"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.nameConduction" for="field_nameConduction"
+            >Name Conduction</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nameConduction"
+            id="field_nameConduction"
+            data-cy="nameConduction"
+            formControlName="nameConduction"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.positionConduction" for="field_positionConduction"
+            >Position Conduction</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="positionConduction"
+            id="field_positionConduction"
+            data-cy="positionConduction"
+            formControlName="positionConduction"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.specialtiesPanel" for="field_specialtiesPanel"
+            >Specialties Panel</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="specialtiesPanel"
+            id="field_specialtiesPanel"
+            data-cy="specialtiesPanel"
+            formControlName="specialtiesPanel"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.namePanel" for="field_namePanel">Name Panel</label>
+          <input type="text" class="form-control" name="namePanel" id="field_namePanel" data-cy="namePanel" formControlName="namePanel" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.titleSubject" for="field_titleSubject"
+            >Title Subject</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="titleSubject"
+            id="field_titleSubject"
+            data-cy="titleSubject"
+            formControlName="titleSubject"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.biblicalPassage" for="field_biblicalPassage"
+            >Biblical Passage</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="biblicalPassage"
+            id="field_biblicalPassage"
+            data-cy="biblicalPassage"
+            formControlName="biblicalPassage"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.synopsisDescription" for="field_synopsisDescription"
+            >Synopsis Description</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="synopsisDescription"
+            id="field_synopsisDescription"
+            data-cy="synopsisDescription"
+            formControlName="synopsisDescription"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.storyline" for="field_storyline">Storyline</label>
+          <input type="text" class="form-control" name="storyline" id="field_storyline" data-cy="storyline" formControlName="storyline" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.mediaContent" for="field_mediaContent"
+            >Media Content</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="mediaContent"
+            id="field_mediaContent"
+            data-cy="mediaContent"
+            formControlName="mediaContent"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.durationOriginal" for="field_durationOriginal"
+            >Duration Original</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationOriginal"
+            id="field_durationOriginal"
+            data-cy="durationOriginal"
+            formControlName="durationOriginal"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.durationEdited" for="field_durationEdited"
+            >Duration Edited</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationEdited"
+            id="field_durationEdited"
+            data-cy="durationEdited"
+            formControlName="durationEdited"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.scenography" for="field_scenography">Scenography</label>
+          <input
+            type="text"
+            class="form-control"
+            name="scenography"
+            id="field_scenography"
+            data-cy="scenography"
+            formControlName="scenography"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.location" for="field_location">Location</label>
+          <input type="text" class="form-control" name="location" id="field_location" data-cy="location" formControlName="location" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.city" for="field_city">City</label>
+          <input type="text" class="form-control" name="city" id="field_city" data-cy="city" formControlName="city" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.departmentState" for="field_departmentState"
+            >Department State</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="departmentState"
+            id="field_departmentState"
+            data-cy="departmentState"
+            formControlName="departmentState"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.producer" for="field_producer">Producer</label>
+          <input type="text" class="form-control" name="producer" id="field_producer" data-cy="producer" formControlName="producer" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.productionAssistant" for="field_productionAssistant"
+            >Production Assistant</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="productionAssistant"
+            id="field_productionAssistant"
+            data-cy="productionAssistant"
+            formControlName="productionAssistant"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.operatorVTRPlayOut" for="field_operatorVTRPlayOut"
+            >Operator VTR Play Out</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="operatorVTRPlayOut"
+            id="field_operatorVTRPlayOut"
+            data-cy="operatorVTRPlayOut"
+            formControlName="operatorVTRPlayOut"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.productionCredits" for="field_productionCredits"
+            >Production Credits</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="productionCredits"
+            id="field_productionCredits"
+            data-cy="productionCredits"
+            formControlName="productionCredits"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.castActors" for="field_castActors">Cast Actors</label>
+          <input
+            type="text"
+            class="form-control"
+            name="castActors"
+            id="field_castActors"
+            data-cy="castActors"
+            formControlName="castActors"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.archiveStatus" for="field_archiveStatus"
+            >Archive Status</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="archiveStatus"
+            id="field_archiveStatus"
+            data-cy="archiveStatus"
+            formControlName="archiveStatus"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.interpreterTranslator" for="field_interpreterTranslator"
+            >Interpreter Translator</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="interpreterTranslator"
+            id="field_interpreterTranslator"
+            data-cy="interpreterTranslator"
+            formControlName="interpreterTranslator"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.dubbing" for="field_dubbing">Dubbing</label>
+          <input type="text" class="form-control" name="dubbing" id="field_dubbing" data-cy="dubbing" formControlName="dubbing" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.subtitleCC" for="field_subtitleCC">Subtitle CC</label>
+          <input
+            type="text"
+            class="form-control"
+            name="subtitleCC"
+            id="field_subtitleCC"
+            data-cy="subtitleCC"
+            formControlName="subtitleCC"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.cataloguerOriginal" for="field_cataloguerOriginal"
+            >Cataloguer Original</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="cataloguerOriginal"
+            id="field_cataloguerOriginal"
+            data-cy="cataloguerOriginal"
+            formControlName="cataloguerOriginal"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.cataloguerEdited" for="field_cataloguerEdited"
+            >Cataloguer Edited</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="cataloguerEdited"
+            id="field_cataloguerEdited"
+            data-cy="cataloguerEdited"
+            formControlName="cataloguerEdited"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.postproductionEditor" for="field_postproductionEditor"
+            >Postproduction Editor</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="postproductionEditor"
+            id="field_postproductionEditor"
+            data-cy="postproductionEditor"
+            formControlName="postproductionEditor"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.operatorIngestion" for="field_operatorIngestion"
+            >Operator Ingestion</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="operatorIngestion"
+            id="field_operatorIngestion"
+            data-cy="operatorIngestion"
+            formControlName="operatorIngestion"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.serviceOTT" for="field_serviceOTT">Service OTT</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="serviceOTT"
+            id="field_serviceOTT"
+            data-cy="serviceOTT"
+            formControlName="serviceOTT"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.archivadoLTOOriginal" for="field_archivadoLTOOriginal"
+            >Archivado LTO Original</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="archivadoLTOOriginal"
+            id="field_archivadoLTOOriginal"
+            data-cy="archivadoLTOOriginal"
+            formControlName="archivadoLTOOriginal"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.archivadoLTOEdited" for="field_archivadoLTOEdited"
+            >Archivado LTO Edited</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="archivadoLTOEdited"
+            id="field_archivadoLTOEdited"
+            data-cy="archivadoLTOEdited"
+            formControlName="archivadoLTOEdited"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.observations" for="field_observations"
+            >Observations</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="observations"
+            id="field_observations"
+            data-cy="observations"
+            formControlName="observations"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.rightsManagement" for="field_rightsManagement"
+            >Rights Management</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="rightsManagement"
+            id="field_rightsManagement"
+            data-cy="rightsManagement"
+            formControlName="rightsManagement"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.cataloguerProduction" for="field_cataloguerProduction"
+            >Cataloguer Production</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="cataloguerProduction"
+            id="field_cataloguerProduction"
+            data-cy="cataloguerProduction"
+            formControlName="cataloguerProduction"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.cataloguerIngest" for="field_cataloguerIngest"
+            >Cataloguer Ingest</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="cataloguerIngest"
+            id="field_cataloguerIngest"
+            data-cy="cataloguerIngest"
+            formControlName="cataloguerIngest"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.cataloguerMaster" for="field_cataloguerMaster"
+            >Cataloguer Master</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="cataloguerMaster"
+            id="field_cataloguerMaster"
+            data-cy="cataloguerMaster"
+            formControlName="cataloguerMaster"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.urlEdition" for="field_urlEdition">Url Edition</label>
+          <input
+            type="text"
+            class="form-control"
+            name="urlEdition"
+            id="field_urlEdition"
+            data-cy="urlEdition"
+            formControlName="urlEdition"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.urlOriginal" for="field_urlOriginal"
+            >Url Original</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="urlOriginal"
+            id="field_urlOriginal"
+            data-cy="urlOriginal"
+            formControlName="urlOriginal"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.createById" for="field_createById">Create By Id</label>
+          <input
+            type="number"
+            class="form-control"
+            name="createById"
+            id="field_createById"
+            data-cy="createById"
+            formControlName="createById"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.createdDate" for="field_createdDate"
+            >Created Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_createdDate"
+              data-cy="createdDate"
+              type="datetime-local"
+              class="form-control"
+              name="createdDate"
+              formControlName="createdDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.lastModifiedById" for="field_lastModifiedById"
+            >Last Modified By Id</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="lastModifiedById"
+            id="field_lastModifiedById"
+            data-cy="lastModifiedById"
+            formControlName="lastModifiedById"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.lastModifiedDate" for="field_lastModifiedDate"
+            >Last Modified Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_lastModifiedDate"
+              data-cy="lastModifiedDate"
+              type="datetime-local"
+              class="form-control"
+              name="lastModifiedDate"
+              formControlName="lastModifiedDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.catContentType" for="field_catContentType"
+            >Cat Content Type</label
+          >
+          <select
+            class="form-control"
+            id="field_catContentType"
+            data-cy="catContentType"
+            name="catContentType"
+            formControlName="catContentType"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catContentType')!.value?.id ? editForm.get('catContentType')!.value : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.catTypeConduction" for="field_catTypeConduction"
+            >Cat Type Conduction</label
+          >
+          <select
+            class="form-control"
+            id="field_catTypeConduction"
+            data-cy="catTypeConduction"
+            name="catTypeConduction"
+            formControlName="catTypeConduction"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catTypeConduction')!.value?.id ? editForm.get('catTypeConduction')!.value : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.catProgram" for="field_catProgram">Cat Program</label>
+          <select class="form-control" id="field_catProgram" data-cy="catProgram" name="catProgram" formControlName="catProgram">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="catalogOption.id === editForm.get('catProgram')!.value?.id ? editForm.get('catProgram')!.value : catalogOption"
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.catShiftRecording" for="field_catShiftRecording"
+            >Cat Shift Recording</label
+          >
+          <select
+            class="form-control"
+            id="field_catShiftRecording"
+            data-cy="catShiftRecording"
+            name="catShiftRecording"
+            formControlName="catShiftRecording"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catShiftRecording')!.value?.id ? editForm.get('catShiftRecording')!.value : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.catTargetAudience" for="field_catTargetAudience"
+            >Cat Target Audience</label
+          >
+          <select
+            class="form-control"
+            id="field_catTargetAudience"
+            data-cy="catTargetAudience"
+            name="catTargetAudience"
+            formControlName="catTargetAudience"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catTargetAudience')!.value?.id ? editForm.get('catTargetAudience')!.value : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.catCountry" for="field_catCountry">Cat Country</label>
+          <select class="form-control" id="field_catCountry" data-cy="catCountry" name="catCountry" formControlName="catCountry">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="catalogOption.id === editForm.get('catCountry')!.value?.id ? editForm.get('catCountry')!.value : catalogOption"
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.catProductionCompany" for="field_catProductionCompany"
+            >Cat Production Company</label
+          >
+          <select
+            class="form-control"
+            id="field_catProductionCompany"
+            data-cy="catProductionCompany"
+            name="catProductionCompany"
+            formControlName="catProductionCompany"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catProductionCompany')!.value?.id
+                  ? editForm.get('catProductionCompany')!.value
+                  : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.catArchivalCollection" for="field_catArchivalCollection"
+            >Cat Archival Collection</label
+          >
+          <select
+            class="form-control"
+            id="field_catArchivalCollection"
+            data-cy="catArchivalCollection"
+            name="catArchivalCollection"
+            formControlName="catArchivalCollection"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catArchivalCollection')!.value?.id
+                  ? editForm.get('catArchivalCollection')!.value
+                  : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.catOriginalLanguage" for="field_catOriginalLanguage"
+            >Cat Original Language</label
+          >
+          <select
+            class="form-control"
+            id="field_catOriginalLanguage"
+            data-cy="catOriginalLanguage"
+            name="catOriginalLanguage"
+            formControlName="catOriginalLanguage"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catOriginalLanguage')!.value?.id
+                  ? editForm.get('catOriginalLanguage')!.value
+                  : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="proyectoBethelApp.content.catInterpreterLanguage"
+            for="field_catInterpreterLanguage"
+            >Cat Interpreter Language</label
+          >
+          <select
+            class="form-control"
+            id="field_catInterpreterLanguage"
+            data-cy="catInterpreterLanguage"
+            name="catInterpreterLanguage"
+            formControlName="catInterpreterLanguage"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catInterpreterLanguage')!.value?.id
+                  ? editForm.get('catInterpreterLanguage')!.value
+                  : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.catDubbingLanguage" for="field_catDubbingLanguage"
+            >Cat Dubbing Language</label
+          >
+          <select
+            class="form-control"
+            id="field_catDubbingLanguage"
+            data-cy="catDubbingLanguage"
+            name="catDubbingLanguage"
+            formControlName="catDubbingLanguage"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catDubbingLanguage')!.value?.id
+                  ? editForm.get('catDubbingLanguage')!.value
+                  : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.catSubtitleLanguage" for="field_catSubtitleLanguage"
+            >Cat Subtitle Language</label
+          >
+          <select
+            class="form-control"
+            id="field_catSubtitleLanguage"
+            data-cy="catSubtitleLanguage"
+            name="catSubtitleLanguage"
+            formControlName="catSubtitleLanguage"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catSubtitleLanguage')!.value?.id
+                  ? editForm.get('catSubtitleLanguage')!.value
+                  : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.catTvCensorship" for="field_catTvCensorship"
+            >Cat Tv Censorship</label
+          >
+          <select
+            class="form-control"
+            id="field_catTvCensorship"
+            data-cy="catTvCensorship"
+            name="catTvCensorship"
+            formControlName="catTvCensorship"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catTvCensorship')!.value?.id ? editForm.get('catTvCensorship')!.value : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="proyectoBethelApp.content.catClassificationCategory"
+            for="field_catClassificationCategory"
+            >Cat Classification Category</label
+          >
+          <select
+            class="form-control"
+            id="field_catClassificationCategory"
+            data-cy="catClassificationCategory"
+            name="catClassificationCategory"
+            formControlName="catClassificationCategory"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catClassificationCategory')!.value?.id
+                  ? editForm.get('catClassificationCategory')!.value
+                  : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.catGenreProgram" for="field_catGenreProgram"
+            >Cat Genre Program</label
+          >
+          <select
+            class="form-control"
+            id="field_catGenreProgram"
+            data-cy="catGenreProgram"
+            name="catGenreProgram"
+            formControlName="catGenreProgram"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catGenreProgram')!.value?.id ? editForm.get('catGenreProgram')!.value : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.catFormatProgram" for="field_catFormatProgram"
+            >Cat Format Program</label
+          >
+          <select
+            class="form-control"
+            id="field_catFormatProgram"
+            data-cy="catFormatProgram"
+            name="catFormatProgram"
+            formControlName="catFormatProgram"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catFormatProgram')!.value?.id ? editForm.get('catFormatProgram')!.value : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.catResolutionOriginal" for="field_catResolutionOriginal"
+            >Cat Resolution Original</label
+          >
+          <select
+            class="form-control"
+            id="field_catResolutionOriginal"
+            data-cy="catResolutionOriginal"
+            name="catResolutionOriginal"
+            formControlName="catResolutionOriginal"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catResolutionOriginal')!.value?.id
+                  ? editForm.get('catResolutionOriginal')!.value
+                  : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.catResolutionEdited" for="field_catResolutionEdited"
+            >Cat Resolution Edited</label
+          >
+          <select
+            class="form-control"
+            id="field_catResolutionEdited"
+            data-cy="catResolutionEdited"
+            name="catResolutionEdited"
+            formControlName="catResolutionEdited"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catResolutionEdited')!.value?.id
+                  ? editForm.get('catResolutionEdited')!.value
+                  : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="proyectoBethelApp.content.catCatalogingLevelOriginal"
+            for="field_catCatalogingLevelOriginal"
+            >Cat Cataloging Level Original</label
+          >
+          <select
+            class="form-control"
+            id="field_catCatalogingLevelOriginal"
+            data-cy="catCatalogingLevelOriginal"
+            name="catCatalogingLevelOriginal"
+            formControlName="catCatalogingLevelOriginal"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catCatalogingLevelOriginal')!.value?.id
+                  ? editForm.get('catCatalogingLevelOriginal')!.value
+                  : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="proyectoBethelApp.content.catCatalogingLevelEdited"
+            for="field_catCatalogingLevelEdited"
+            >Cat Cataloging Level Edited</label
+          >
+          <select
+            class="form-control"
+            id="field_catCatalogingLevelEdited"
+            data-cy="catCatalogingLevelEdited"
+            name="catCatalogingLevelEdited"
+            formControlName="catCatalogingLevelEdited"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catCatalogingLevelEdited')!.value?.id
+                  ? editForm.get('catCatalogingLevelEdited')!.value
+                  : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.catVideoQuality" for="field_catVideoQuality"
+            >Cat Video Quality</label
+          >
+          <select
+            class="form-control"
+            id="field_catVideoQuality"
+            data-cy="catVideoQuality"
+            name="catVideoQuality"
+            formControlName="catVideoQuality"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catVideoQuality')!.value?.id ? editForm.get('catVideoQuality')!.value : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.catAudioQuality" for="field_catAudioQuality"
+            >Cat Audio Quality</label
+          >
+          <select
+            class="form-control"
+            id="field_catAudioQuality"
+            data-cy="catAudioQuality"
+            name="catAudioQuality"
+            formControlName="catAudioQuality"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catAudioQuality')!.value?.id ? editForm.get('catAudioQuality')!.value : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.catMusicalGroup" for="field_catMusicalGroup"
+            >Cat Musical Group</label
+          >
+          <select
+            class="form-control"
+            id="field_catMusicalGroup"
+            data-cy="catMusicalGroup"
+            name="catMusicalGroup"
+            formControlName="catMusicalGroup"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catMusicalGroup')!.value?.id ? editForm.get('catMusicalGroup')!.value : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.catMusicalGenre" for="field_catMusicalGenre"
+            >Cat Musical Genre</label
+          >
+          <select
+            class="form-control"
+            id="field_catMusicalGenre"
+            data-cy="catMusicalGenre"
+            name="catMusicalGenre"
+            formControlName="catMusicalGenre"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                catalogOption.id === editForm.get('catMusicalGenre')!.value?.id ? editForm.get('catMusicalGenre')!.value : catalogOption
+              "
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="proyectoBethelApp.content.catApproved" for="field_catApproved"
+            >Cat Approved</label
+          >
+          <select class="form-control" id="field_catApproved" data-cy="catApproved" name="catApproved" formControlName="catApproved">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="catalogOption.id === editForm.get('catApproved')!.value?.id ? editForm.get('catApproved')!.value : catalogOption"
+              *ngFor="let catalogOption of catalogsSharedCollection; trackBy: trackCatalogById"
+            >
+              {{ catalogOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

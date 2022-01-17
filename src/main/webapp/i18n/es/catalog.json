@@ -1,0 +1,33 @@
+{
+  "proyectoBethelApp": {
+    "catalog": {
+      "home": {
+        "title": "Catalogs",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Catalog",
+        "createOrEditLabel": "Crear o editar Catalog",
+        "notFound": "Ningún Catalogs encontrado"
+      },
+      "created": "Un nuevo Catalog ha sido creado con el identificador {{ param }}",
+      "updated": "Un Catalog ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Catalog ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Catalog {{ id }}?"
+      },
+      "detail": {
+        "title": "Catalog"
+      },
+      "id": "ID",
+      "code": "Code",
+      "name": "Name",
+      "description": "Description",
+      "active": "Active",
+      "createById": "Create By Id",
+      "createdDate": "Created Date",
+      "lastModifiedById": "Last Modified By Id",
+      "lastModifiedDate": "Last Modified Date",
+      "contentTag": "Content Tag",
+      "parentId": "Parent Id"
+    }
+  }
+}

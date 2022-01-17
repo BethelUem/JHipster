@@ -1,0 +1,47 @@
+{
+  "name": "ContentTag",
+  "fields": [
+    {
+      "fieldName": "createById",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "lastModifiedById",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "content",
+      "otherEntityRelationshipName": "catTags",
+      "relationshipValidateRules": "required",
+      "relationshipName": "contentId"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalog",
+      "otherEntityRelationshipName": "contentTag",
+      "relationshipValidateRules": "required",
+      "relationshipName": "catalogId"
+    }
+  ],
+  "entityTableName": "content_tag",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20220117035115"
+}

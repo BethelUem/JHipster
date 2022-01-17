@@ -1,0 +1,497 @@
+<div>
+  <h2 id="page-heading" data-cy="ContentHeading">
+    <span jhiTranslate="proyectoBethelApp.content.home.title">Contents</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="proyectoBethelApp.content.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-content"
+        [routerLink]="['/content/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="proyectoBethelApp.content.home.createLabel"> Create a new Content </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="contents?.length === 0">
+    <span jhiTranslate="proyectoBethelApp.content.home.notFound">No contents found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="contents && contents.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="recordingDate">
+            <span jhiTranslate="proyectoBethelApp.content.recordingDate">Recording Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="editionDate">
+            <span jhiTranslate="proyectoBethelApp.content.editionDate">Edition Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="signatureOriginal">
+            <span jhiTranslate="proyectoBethelApp.content.signatureOriginal">Signature Original</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="signatureEdited">
+            <span jhiTranslate="proyectoBethelApp.content.signatureEdited">Signature Edited</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="eventReason">
+            <span jhiTranslate="proyectoBethelApp.content.eventReason">Event Reason</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="eventSlogan">
+            <span jhiTranslate="proyectoBethelApp.content.eventSlogan">Event Slogan</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="nameConduction">
+            <span jhiTranslate="proyectoBethelApp.content.nameConduction">Name Conduction</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="positionConduction">
+            <span jhiTranslate="proyectoBethelApp.content.positionConduction">Position Conduction</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="specialtiesPanel">
+            <span jhiTranslate="proyectoBethelApp.content.specialtiesPanel">Specialties Panel</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="namePanel">
+            <span jhiTranslate="proyectoBethelApp.content.namePanel">Name Panel</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="titleSubject">
+            <span jhiTranslate="proyectoBethelApp.content.titleSubject">Title Subject</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="biblicalPassage">
+            <span jhiTranslate="proyectoBethelApp.content.biblicalPassage">Biblical Passage</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="synopsisDescription">
+            <span jhiTranslate="proyectoBethelApp.content.synopsisDescription">Synopsis Description</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="storyline">
+            <span jhiTranslate="proyectoBethelApp.content.storyline">Storyline</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="mediaContent">
+            <span jhiTranslate="proyectoBethelApp.content.mediaContent">Media Content</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="durationOriginal">
+            <span jhiTranslate="proyectoBethelApp.content.durationOriginal">Duration Original</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="durationEdited">
+            <span jhiTranslate="proyectoBethelApp.content.durationEdited">Duration Edited</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="scenography">
+            <span jhiTranslate="proyectoBethelApp.content.scenography">Scenography</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="location">
+            <span jhiTranslate="proyectoBethelApp.content.location">Location</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="city">
+            <span jhiTranslate="proyectoBethelApp.content.city">City</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="departmentState">
+            <span jhiTranslate="proyectoBethelApp.content.departmentState">Department State</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="producer">
+            <span jhiTranslate="proyectoBethelApp.content.producer">Producer</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="productionAssistant">
+            <span jhiTranslate="proyectoBethelApp.content.productionAssistant">Production Assistant</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="operatorVTRPlayOut">
+            <span jhiTranslate="proyectoBethelApp.content.operatorVTRPlayOut">Operator VTR Play Out</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="productionCredits">
+            <span jhiTranslate="proyectoBethelApp.content.productionCredits">Production Credits</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="castActors">
+            <span jhiTranslate="proyectoBethelApp.content.castActors">Cast Actors</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="archiveStatus">
+            <span jhiTranslate="proyectoBethelApp.content.archiveStatus">Archive Status</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="interpreterTranslator">
+            <span jhiTranslate="proyectoBethelApp.content.interpreterTranslator">Interpreter Translator</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dubbing">
+            <span jhiTranslate="proyectoBethelApp.content.dubbing">Dubbing</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="subtitleCC">
+            <span jhiTranslate="proyectoBethelApp.content.subtitleCC">Subtitle CC</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="cataloguerOriginal">
+            <span jhiTranslate="proyectoBethelApp.content.cataloguerOriginal">Cataloguer Original</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="cataloguerEdited">
+            <span jhiTranslate="proyectoBethelApp.content.cataloguerEdited">Cataloguer Edited</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="postproductionEditor">
+            <span jhiTranslate="proyectoBethelApp.content.postproductionEditor">Postproduction Editor</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="operatorIngestion">
+            <span jhiTranslate="proyectoBethelApp.content.operatorIngestion">Operator Ingestion</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="serviceOTT">
+            <span jhiTranslate="proyectoBethelApp.content.serviceOTT">Service OTT</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="archivadoLTOOriginal">
+            <span jhiTranslate="proyectoBethelApp.content.archivadoLTOOriginal">Archivado LTO Original</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="archivadoLTOEdited">
+            <span jhiTranslate="proyectoBethelApp.content.archivadoLTOEdited">Archivado LTO Edited</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="observations">
+            <span jhiTranslate="proyectoBethelApp.content.observations">Observations</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="rightsManagement">
+            <span jhiTranslate="proyectoBethelApp.content.rightsManagement">Rights Management</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="cataloguerProduction">
+            <span jhiTranslate="proyectoBethelApp.content.cataloguerProduction">Cataloguer Production</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="cataloguerIngest">
+            <span jhiTranslate="proyectoBethelApp.content.cataloguerIngest">Cataloguer Ingest</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="cataloguerMaster">
+            <span jhiTranslate="proyectoBethelApp.content.cataloguerMaster">Cataloguer Master</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="urlEdition">
+            <span jhiTranslate="proyectoBethelApp.content.urlEdition">Url Edition</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="urlOriginal">
+            <span jhiTranslate="proyectoBethelApp.content.urlOriginal">Url Original</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="createById">
+            <span jhiTranslate="proyectoBethelApp.content.createById">Create By Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="createdDate">
+            <span jhiTranslate="proyectoBethelApp.content.createdDate">Created Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedById">
+            <span jhiTranslate="proyectoBethelApp.content.lastModifiedById">Last Modified By Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedDate">
+            <span jhiTranslate="proyectoBethelApp.content.lastModifiedDate">Last Modified Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catContentType.id">
+            <span jhiTranslate="proyectoBethelApp.content.catContentType">Cat Content Type</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catTypeConduction.id">
+            <span jhiTranslate="proyectoBethelApp.content.catTypeConduction">Cat Type Conduction</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catProgram.id">
+            <span jhiTranslate="proyectoBethelApp.content.catProgram">Cat Program</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catShiftRecording.id">
+            <span jhiTranslate="proyectoBethelApp.content.catShiftRecording">Cat Shift Recording</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catTargetAudience.id">
+            <span jhiTranslate="proyectoBethelApp.content.catTargetAudience">Cat Target Audience</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catCountry.id">
+            <span jhiTranslate="proyectoBethelApp.content.catCountry">Cat Country</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catProductionCompany.id">
+            <span jhiTranslate="proyectoBethelApp.content.catProductionCompany">Cat Production Company</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catArchivalCollection.id">
+            <span jhiTranslate="proyectoBethelApp.content.catArchivalCollection">Cat Archival Collection</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catOriginalLanguage.id">
+            <span jhiTranslate="proyectoBethelApp.content.catOriginalLanguage">Cat Original Language</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catInterpreterLanguage.id">
+            <span jhiTranslate="proyectoBethelApp.content.catInterpreterLanguage">Cat Interpreter Language</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catDubbingLanguage.id">
+            <span jhiTranslate="proyectoBethelApp.content.catDubbingLanguage">Cat Dubbing Language</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catSubtitleLanguage.id">
+            <span jhiTranslate="proyectoBethelApp.content.catSubtitleLanguage">Cat Subtitle Language</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catTvCensorship.id">
+            <span jhiTranslate="proyectoBethelApp.content.catTvCensorship">Cat Tv Censorship</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catClassificationCategory.id">
+            <span jhiTranslate="proyectoBethelApp.content.catClassificationCategory">Cat Classification Category</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catGenreProgram.id">
+            <span jhiTranslate="proyectoBethelApp.content.catGenreProgram">Cat Genre Program</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catFormatProgram.id">
+            <span jhiTranslate="proyectoBethelApp.content.catFormatProgram">Cat Format Program</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catResolutionOriginal.id">
+            <span jhiTranslate="proyectoBethelApp.content.catResolutionOriginal">Cat Resolution Original</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catResolutionEdited.id">
+            <span jhiTranslate="proyectoBethelApp.content.catResolutionEdited">Cat Resolution Edited</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catCatalogingLevelOriginal.id">
+            <span jhiTranslate="proyectoBethelApp.content.catCatalogingLevelOriginal">Cat Cataloging Level Original</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catCatalogingLevelEdited.id">
+            <span jhiTranslate="proyectoBethelApp.content.catCatalogingLevelEdited">Cat Cataloging Level Edited</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catVideoQuality.id">
+            <span jhiTranslate="proyectoBethelApp.content.catVideoQuality">Cat Video Quality</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catAudioQuality.id">
+            <span jhiTranslate="proyectoBethelApp.content.catAudioQuality">Cat Audio Quality</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catMusicalGroup.id">
+            <span jhiTranslate="proyectoBethelApp.content.catMusicalGroup">Cat Musical Group</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catMusicalGenre.id">
+            <span jhiTranslate="proyectoBethelApp.content.catMusicalGenre">Cat Musical Genre</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="catApproved.id">
+            <span jhiTranslate="proyectoBethelApp.content.catApproved">Cat Approved</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let content of contents; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/content', content.id, 'view']">{{ content.id }}</a>
+          </td>
+          <td>{{ content.recordingDate | formatMediumDatetime }}</td>
+          <td>{{ content.editionDate | formatMediumDatetime }}</td>
+          <td>{{ content.signatureOriginal }}</td>
+          <td>{{ content.signatureEdited }}</td>
+          <td>{{ content.eventReason }}</td>
+          <td>{{ content.eventSlogan }}</td>
+          <td>{{ content.nameConduction }}</td>
+          <td>{{ content.positionConduction }}</td>
+          <td>{{ content.specialtiesPanel }}</td>
+          <td>{{ content.namePanel }}</td>
+          <td>{{ content.titleSubject }}</td>
+          <td>{{ content.biblicalPassage }}</td>
+          <td>{{ content.synopsisDescription }}</td>
+          <td>{{ content.storyline }}</td>
+          <td>{{ content.mediaContent }}</td>
+          <td title="{{ content.durationOriginal }}">{{ content.durationOriginal | duration }}</td>
+          <td title="{{ content.durationEdited }}">{{ content.durationEdited | duration }}</td>
+          <td>{{ content.scenography }}</td>
+          <td>{{ content.location }}</td>
+          <td>{{ content.city }}</td>
+          <td>{{ content.departmentState }}</td>
+          <td>{{ content.producer }}</td>
+          <td>{{ content.productionAssistant }}</td>
+          <td>{{ content.operatorVTRPlayOut }}</td>
+          <td>{{ content.productionCredits }}</td>
+          <td>{{ content.castActors }}</td>
+          <td>{{ content.archiveStatus }}</td>
+          <td>{{ content.interpreterTranslator }}</td>
+          <td>{{ content.dubbing }}</td>
+          <td>{{ content.subtitleCC }}</td>
+          <td>{{ content.cataloguerOriginal }}</td>
+          <td>{{ content.cataloguerEdited }}</td>
+          <td>{{ content.postproductionEditor }}</td>
+          <td>{{ content.operatorIngestion }}</td>
+          <td>{{ content.serviceOTT }}</td>
+          <td>{{ content.archivadoLTOOriginal }}</td>
+          <td>{{ content.archivadoLTOEdited }}</td>
+          <td>{{ content.observations }}</td>
+          <td>{{ content.rightsManagement }}</td>
+          <td>{{ content.cataloguerProduction }}</td>
+          <td>{{ content.cataloguerIngest }}</td>
+          <td>{{ content.cataloguerMaster }}</td>
+          <td>{{ content.urlEdition }}</td>
+          <td>{{ content.urlOriginal }}</td>
+          <td>{{ content.createById }}</td>
+          <td>{{ content.createdDate | formatMediumDatetime }}</td>
+          <td>{{ content.lastModifiedById }}</td>
+          <td>{{ content.lastModifiedDate | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="content.catContentType">
+              <a [routerLink]="['/catalog', content.catContentType?.id, 'view']">{{ content.catContentType?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catTypeConduction">
+              <a [routerLink]="['/catalog', content.catTypeConduction?.id, 'view']">{{ content.catTypeConduction?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catProgram">
+              <a [routerLink]="['/catalog', content.catProgram?.id, 'view']">{{ content.catProgram?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catShiftRecording">
+              <a [routerLink]="['/catalog', content.catShiftRecording?.id, 'view']">{{ content.catShiftRecording?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catTargetAudience">
+              <a [routerLink]="['/catalog', content.catTargetAudience?.id, 'view']">{{ content.catTargetAudience?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catCountry">
+              <a [routerLink]="['/catalog', content.catCountry?.id, 'view']">{{ content.catCountry?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catProductionCompany">
+              <a [routerLink]="['/catalog', content.catProductionCompany?.id, 'view']">{{ content.catProductionCompany?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catArchivalCollection">
+              <a [routerLink]="['/catalog', content.catArchivalCollection?.id, 'view']">{{ content.catArchivalCollection?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catOriginalLanguage">
+              <a [routerLink]="['/catalog', content.catOriginalLanguage?.id, 'view']">{{ content.catOriginalLanguage?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catInterpreterLanguage">
+              <a [routerLink]="['/catalog', content.catInterpreterLanguage?.id, 'view']">{{ content.catInterpreterLanguage?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catDubbingLanguage">
+              <a [routerLink]="['/catalog', content.catDubbingLanguage?.id, 'view']">{{ content.catDubbingLanguage?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catSubtitleLanguage">
+              <a [routerLink]="['/catalog', content.catSubtitleLanguage?.id, 'view']">{{ content.catSubtitleLanguage?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catTvCensorship">
+              <a [routerLink]="['/catalog', content.catTvCensorship?.id, 'view']">{{ content.catTvCensorship?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catClassificationCategory">
+              <a [routerLink]="['/catalog', content.catClassificationCategory?.id, 'view']">{{ content.catClassificationCategory?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catGenreProgram">
+              <a [routerLink]="['/catalog', content.catGenreProgram?.id, 'view']">{{ content.catGenreProgram?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catFormatProgram">
+              <a [routerLink]="['/catalog', content.catFormatProgram?.id, 'view']">{{ content.catFormatProgram?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catResolutionOriginal">
+              <a [routerLink]="['/catalog', content.catResolutionOriginal?.id, 'view']">{{ content.catResolutionOriginal?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catResolutionEdited">
+              <a [routerLink]="['/catalog', content.catResolutionEdited?.id, 'view']">{{ content.catResolutionEdited?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catCatalogingLevelOriginal">
+              <a [routerLink]="['/catalog', content.catCatalogingLevelOriginal?.id, 'view']">{{
+                content.catCatalogingLevelOriginal?.id
+              }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catCatalogingLevelEdited">
+              <a [routerLink]="['/catalog', content.catCatalogingLevelEdited?.id, 'view']">{{ content.catCatalogingLevelEdited?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catVideoQuality">
+              <a [routerLink]="['/catalog', content.catVideoQuality?.id, 'view']">{{ content.catVideoQuality?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catAudioQuality">
+              <a [routerLink]="['/catalog', content.catAudioQuality?.id, 'view']">{{ content.catAudioQuality?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catMusicalGroup">
+              <a [routerLink]="['/catalog', content.catMusicalGroup?.id, 'view']">{{ content.catMusicalGroup?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catMusicalGenre">
+              <a [routerLink]="['/catalog', content.catMusicalGenre?.id, 'view']">{{ content.catMusicalGenre?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="content.catApproved">
+              <a [routerLink]="['/catalog', content.catApproved?.id, 'view']">{{ content.catApproved?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/content', content.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/content', content.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(content)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="contents && contents.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

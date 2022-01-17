@@ -1,0 +1,29 @@
+{
+  "proyectoBethelApp": {
+    "contentTag": {
+      "home": {
+        "title": "Content Tags",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Content Tag",
+        "createOrEditLabel": "Crear o editar Content Tag",
+        "notFound": "Ningún Content Tags encontrado"
+      },
+      "created": "Un nuevo Content Tag ha sido creado con el identificador {{ param }}",
+      "updated": "Un Content Tag ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Content Tag ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Content Tag {{ id }}?"
+      },
+      "detail": {
+        "title": "Content Tag"
+      },
+      "id": "ID",
+      "createById": "Create By Id",
+      "createdDate": "Created Date",
+      "lastModifiedById": "Last Modified By Id",
+      "lastModifiedDate": "Last Modified Date",
+      "contentId": "Content Id",
+      "catalogId": "Catalog Id"
+    }
+  }
+}

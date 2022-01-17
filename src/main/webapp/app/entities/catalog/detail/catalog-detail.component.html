@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="catalog">
+      <h2 data-cy="catalogDetailsHeading"><span jhiTranslate="proyectoBethelApp.catalog.detail.title">Catalog</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ catalog.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.catalog.code">Code</span></dt>
+        <dd>
+          <span>{{ catalog.code }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.catalog.name">Name</span></dt>
+        <dd>
+          <span>{{ catalog.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.catalog.description">Description</span></dt>
+        <dd>
+          <span>{{ catalog.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.catalog.active">Active</span></dt>
+        <dd>
+          <span>{{ catalog.active }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.catalog.createById">Create By Id</span></dt>
+        <dd>
+          <span>{{ catalog.createById }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.catalog.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ catalog.createdDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.catalog.lastModifiedById">Last Modified By Id</span></dt>
+        <dd>
+          <span>{{ catalog.lastModifiedById }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.catalog.lastModifiedDate">Last Modified Date</span></dt>
+        <dd>
+          <span>{{ catalog.lastModifiedDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.catalog.parentId">Parent Id</span></dt>
+        <dd>
+          <div *ngIf="catalog.parentId">
+            <a [routerLink]="['/catalog', catalog.parentId?.id, 'view']">{{ catalog.parentId?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/catalog', catalog.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

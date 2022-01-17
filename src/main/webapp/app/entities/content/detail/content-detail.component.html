@@ -1,0 +1,370 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="content">
+      <h2 data-cy="contentDetailsHeading"><span jhiTranslate="proyectoBethelApp.content.detail.title">Content</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ content.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.recordingDate">Recording Date</span></dt>
+        <dd>
+          <span>{{ content.recordingDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.editionDate">Edition Date</span></dt>
+        <dd>
+          <span>{{ content.editionDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.signatureOriginal">Signature Original</span></dt>
+        <dd>
+          <span>{{ content.signatureOriginal }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.signatureEdited">Signature Edited</span></dt>
+        <dd>
+          <span>{{ content.signatureEdited }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.eventReason">Event Reason</span></dt>
+        <dd>
+          <span>{{ content.eventReason }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.eventSlogan">Event Slogan</span></dt>
+        <dd>
+          <span>{{ content.eventSlogan }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.nameConduction">Name Conduction</span></dt>
+        <dd>
+          <span>{{ content.nameConduction }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.positionConduction">Position Conduction</span></dt>
+        <dd>
+          <span>{{ content.positionConduction }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.specialtiesPanel">Specialties Panel</span></dt>
+        <dd>
+          <span>{{ content.specialtiesPanel }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.namePanel">Name Panel</span></dt>
+        <dd>
+          <span>{{ content.namePanel }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.titleSubject">Title Subject</span></dt>
+        <dd>
+          <span>{{ content.titleSubject }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.biblicalPassage">Biblical Passage</span></dt>
+        <dd>
+          <span>{{ content.biblicalPassage }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.synopsisDescription">Synopsis Description</span></dt>
+        <dd>
+          <span>{{ content.synopsisDescription }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.storyline">Storyline</span></dt>
+        <dd>
+          <span>{{ content.storyline }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.mediaContent">Media Content</span></dt>
+        <dd>
+          <span>{{ content.mediaContent }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.durationOriginal">Duration Original</span></dt>
+        <dd>
+          <span>{{ content.durationOriginal | duration }} ({{ content.durationOriginal }})</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.durationEdited">Duration Edited</span></dt>
+        <dd>
+          <span>{{ content.durationEdited | duration }} ({{ content.durationEdited }})</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.scenography">Scenography</span></dt>
+        <dd>
+          <span>{{ content.scenography }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.location">Location</span></dt>
+        <dd>
+          <span>{{ content.location }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.city">City</span></dt>
+        <dd>
+          <span>{{ content.city }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.departmentState">Department State</span></dt>
+        <dd>
+          <span>{{ content.departmentState }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.producer">Producer</span></dt>
+        <dd>
+          <span>{{ content.producer }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.productionAssistant">Production Assistant</span></dt>
+        <dd>
+          <span>{{ content.productionAssistant }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.operatorVTRPlayOut">Operator VTR Play Out</span></dt>
+        <dd>
+          <span>{{ content.operatorVTRPlayOut }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.productionCredits">Production Credits</span></dt>
+        <dd>
+          <span>{{ content.productionCredits }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.castActors">Cast Actors</span></dt>
+        <dd>
+          <span>{{ content.castActors }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.archiveStatus">Archive Status</span></dt>
+        <dd>
+          <span>{{ content.archiveStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.interpreterTranslator">Interpreter Translator</span></dt>
+        <dd>
+          <span>{{ content.interpreterTranslator }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.dubbing">Dubbing</span></dt>
+        <dd>
+          <span>{{ content.dubbing }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.subtitleCC">Subtitle CC</span></dt>
+        <dd>
+          <span>{{ content.subtitleCC }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.cataloguerOriginal">Cataloguer Original</span></dt>
+        <dd>
+          <span>{{ content.cataloguerOriginal }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.cataloguerEdited">Cataloguer Edited</span></dt>
+        <dd>
+          <span>{{ content.cataloguerEdited }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.postproductionEditor">Postproduction Editor</span></dt>
+        <dd>
+          <span>{{ content.postproductionEditor }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.operatorIngestion">Operator Ingestion</span></dt>
+        <dd>
+          <span>{{ content.operatorIngestion }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.serviceOTT">Service OTT</span></dt>
+        <dd>
+          <span>{{ content.serviceOTT }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.archivadoLTOOriginal">Archivado LTO Original</span></dt>
+        <dd>
+          <span>{{ content.archivadoLTOOriginal }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.archivadoLTOEdited">Archivado LTO Edited</span></dt>
+        <dd>
+          <span>{{ content.archivadoLTOEdited }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.observations">Observations</span></dt>
+        <dd>
+          <span>{{ content.observations }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.rightsManagement">Rights Management</span></dt>
+        <dd>
+          <span>{{ content.rightsManagement }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.cataloguerProduction">Cataloguer Production</span></dt>
+        <dd>
+          <span>{{ content.cataloguerProduction }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.cataloguerIngest">Cataloguer Ingest</span></dt>
+        <dd>
+          <span>{{ content.cataloguerIngest }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.cataloguerMaster">Cataloguer Master</span></dt>
+        <dd>
+          <span>{{ content.cataloguerMaster }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.urlEdition">Url Edition</span></dt>
+        <dd>
+          <span>{{ content.urlEdition }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.urlOriginal">Url Original</span></dt>
+        <dd>
+          <span>{{ content.urlOriginal }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.createById">Create By Id</span></dt>
+        <dd>
+          <span>{{ content.createById }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ content.createdDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.lastModifiedById">Last Modified By Id</span></dt>
+        <dd>
+          <span>{{ content.lastModifiedById }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.lastModifiedDate">Last Modified Date</span></dt>
+        <dd>
+          <span>{{ content.lastModifiedDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catContentType">Cat Content Type</span></dt>
+        <dd>
+          <div *ngIf="content.catContentType">
+            <a [routerLink]="['/catalog', content.catContentType?.id, 'view']">{{ content.catContentType?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catTypeConduction">Cat Type Conduction</span></dt>
+        <dd>
+          <div *ngIf="content.catTypeConduction">
+            <a [routerLink]="['/catalog', content.catTypeConduction?.id, 'view']">{{ content.catTypeConduction?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catProgram">Cat Program</span></dt>
+        <dd>
+          <div *ngIf="content.catProgram">
+            <a [routerLink]="['/catalog', content.catProgram?.id, 'view']">{{ content.catProgram?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catShiftRecording">Cat Shift Recording</span></dt>
+        <dd>
+          <div *ngIf="content.catShiftRecording">
+            <a [routerLink]="['/catalog', content.catShiftRecording?.id, 'view']">{{ content.catShiftRecording?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catTargetAudience">Cat Target Audience</span></dt>
+        <dd>
+          <div *ngIf="content.catTargetAudience">
+            <a [routerLink]="['/catalog', content.catTargetAudience?.id, 'view']">{{ content.catTargetAudience?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catCountry">Cat Country</span></dt>
+        <dd>
+          <div *ngIf="content.catCountry">
+            <a [routerLink]="['/catalog', content.catCountry?.id, 'view']">{{ content.catCountry?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catProductionCompany">Cat Production Company</span></dt>
+        <dd>
+          <div *ngIf="content.catProductionCompany">
+            <a [routerLink]="['/catalog', content.catProductionCompany?.id, 'view']">{{ content.catProductionCompany?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catArchivalCollection">Cat Archival Collection</span></dt>
+        <dd>
+          <div *ngIf="content.catArchivalCollection">
+            <a [routerLink]="['/catalog', content.catArchivalCollection?.id, 'view']">{{ content.catArchivalCollection?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catOriginalLanguage">Cat Original Language</span></dt>
+        <dd>
+          <div *ngIf="content.catOriginalLanguage">
+            <a [routerLink]="['/catalog', content.catOriginalLanguage?.id, 'view']">{{ content.catOriginalLanguage?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catInterpreterLanguage">Cat Interpreter Language</span></dt>
+        <dd>
+          <div *ngIf="content.catInterpreterLanguage">
+            <a [routerLink]="['/catalog', content.catInterpreterLanguage?.id, 'view']">{{ content.catInterpreterLanguage?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catDubbingLanguage">Cat Dubbing Language</span></dt>
+        <dd>
+          <div *ngIf="content.catDubbingLanguage">
+            <a [routerLink]="['/catalog', content.catDubbingLanguage?.id, 'view']">{{ content.catDubbingLanguage?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catSubtitleLanguage">Cat Subtitle Language</span></dt>
+        <dd>
+          <div *ngIf="content.catSubtitleLanguage">
+            <a [routerLink]="['/catalog', content.catSubtitleLanguage?.id, 'view']">{{ content.catSubtitleLanguage?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catTvCensorship">Cat Tv Censorship</span></dt>
+        <dd>
+          <div *ngIf="content.catTvCensorship">
+            <a [routerLink]="['/catalog', content.catTvCensorship?.id, 'view']">{{ content.catTvCensorship?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catClassificationCategory">Cat Classification Category</span></dt>
+        <dd>
+          <div *ngIf="content.catClassificationCategory">
+            <a [routerLink]="['/catalog', content.catClassificationCategory?.id, 'view']">{{ content.catClassificationCategory?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catGenreProgram">Cat Genre Program</span></dt>
+        <dd>
+          <div *ngIf="content.catGenreProgram">
+            <a [routerLink]="['/catalog', content.catGenreProgram?.id, 'view']">{{ content.catGenreProgram?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catFormatProgram">Cat Format Program</span></dt>
+        <dd>
+          <div *ngIf="content.catFormatProgram">
+            <a [routerLink]="['/catalog', content.catFormatProgram?.id, 'view']">{{ content.catFormatProgram?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catResolutionOriginal">Cat Resolution Original</span></dt>
+        <dd>
+          <div *ngIf="content.catResolutionOriginal">
+            <a [routerLink]="['/catalog', content.catResolutionOriginal?.id, 'view']">{{ content.catResolutionOriginal?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catResolutionEdited">Cat Resolution Edited</span></dt>
+        <dd>
+          <div *ngIf="content.catResolutionEdited">
+            <a [routerLink]="['/catalog', content.catResolutionEdited?.id, 'view']">{{ content.catResolutionEdited?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catCatalogingLevelOriginal">Cat Cataloging Level Original</span></dt>
+        <dd>
+          <div *ngIf="content.catCatalogingLevelOriginal">
+            <a [routerLink]="['/catalog', content.catCatalogingLevelOriginal?.id, 'view']">{{ content.catCatalogingLevelOriginal?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catCatalogingLevelEdited">Cat Cataloging Level Edited</span></dt>
+        <dd>
+          <div *ngIf="content.catCatalogingLevelEdited">
+            <a [routerLink]="['/catalog', content.catCatalogingLevelEdited?.id, 'view']">{{ content.catCatalogingLevelEdited?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catVideoQuality">Cat Video Quality</span></dt>
+        <dd>
+          <div *ngIf="content.catVideoQuality">
+            <a [routerLink]="['/catalog', content.catVideoQuality?.id, 'view']">{{ content.catVideoQuality?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catAudioQuality">Cat Audio Quality</span></dt>
+        <dd>
+          <div *ngIf="content.catAudioQuality">
+            <a [routerLink]="['/catalog', content.catAudioQuality?.id, 'view']">{{ content.catAudioQuality?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catMusicalGroup">Cat Musical Group</span></dt>
+        <dd>
+          <div *ngIf="content.catMusicalGroup">
+            <a [routerLink]="['/catalog', content.catMusicalGroup?.id, 'view']">{{ content.catMusicalGroup?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catMusicalGenre">Cat Musical Genre</span></dt>
+        <dd>
+          <div *ngIf="content.catMusicalGenre">
+            <a [routerLink]="['/catalog', content.catMusicalGenre?.id, 'view']">{{ content.catMusicalGenre?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.content.catApproved">Cat Approved</span></dt>
+        <dd>
+          <div *ngIf="content.catApproved">
+            <a [routerLink]="['/catalog', content.catApproved?.id, 'view']">{{ content.catApproved?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/content', content.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

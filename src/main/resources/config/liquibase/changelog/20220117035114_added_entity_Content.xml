@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Content.
+    -->
+    <changeSet id="20220117035114-1" author="jhipster">
+        <createTable tableName="content">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="recording_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="edition_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="signature_original" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="signature_edited" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="event_reason" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="event_slogan" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="name_conduction" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="position_conduction" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="specialties_panel" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="name_panel" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="title_subject" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="biblical_passage" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="synopsis_description" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="storyline" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="media_content" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="duration_original" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="duration_edited" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="scenography" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="location" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="city" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="department_state" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="producer" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="production_assistant" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="operator_vtr_play_out" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="production_credits" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cast_actors" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="archive_status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="interpreter_translator" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="dubbing" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="subtitle_cc" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cataloguer_original" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cataloguer_edited" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="postproduction_editor" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="operator_ingestion" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="service_ott" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="archivado_lto_original" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="archivado_lto_edited" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="observations" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="rights_management" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cataloguer_production" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cataloguer_ingest" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cataloguer_master" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="url_edition" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="url_original" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="create_by_id" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified_by_id" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_content_type_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_type_conduction_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_program_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_shift_recording_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_target_audience_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_country_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_production_company_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_archival_collection_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_original_language_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_interpreter_language_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_dubbing_language_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_subtitle_language_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_tv_censorship_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_classification_category_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_genre_program_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_format_program_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_resolution_original_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_resolution_edited_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_cataloging_level_original_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_cataloging_level_edited_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_video_quality_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_audio_quality_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_musical_group_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_musical_genre_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="cat_approved_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="content" columnName="recording_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="content" columnName="edition_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="content" columnName="created_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="content" columnName="last_modified_date" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20220117035114-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/content.csv"
+                  separator=";"
+                  tableName="content"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="recording_date" type="date"/>
+            <column name="edition_date" type="date"/>
+            <column name="signature_original" type="string"/>
+            <column name="signature_edited" type="string"/>
+            <column name="event_reason" type="string"/>
+            <column name="event_slogan" type="string"/>
+            <column name="name_conduction" type="string"/>
+            <column name="position_conduction" type="string"/>
+            <column name="specialties_panel" type="string"/>
+            <column name="name_panel" type="string"/>
+            <column name="title_subject" type="string"/>
+            <column name="biblical_passage" type="string"/>
+            <column name="synopsis_description" type="string"/>
+            <column name="storyline" type="string"/>
+            <column name="media_content" type="string"/>
+            <column name="duration_original" type="numeric"/>
+            <column name="duration_edited" type="numeric"/>
+            <column name="scenography" type="string"/>
+            <column name="location" type="string"/>
+            <column name="city" type="string"/>
+            <column name="department_state" type="string"/>
+            <column name="producer" type="string"/>
+            <column name="production_assistant" type="string"/>
+            <column name="operator_vtr_play_out" type="string"/>
+            <column name="production_credits" type="string"/>
+            <column name="cast_actors" type="string"/>
+            <column name="archive_status" type="string"/>
+            <column name="interpreter_translator" type="string"/>
+            <column name="dubbing" type="string"/>
+            <column name="subtitle_cc" type="string"/>
+            <column name="cataloguer_original" type="string"/>
+            <column name="cataloguer_edited" type="string"/>
+            <column name="postproduction_editor" type="string"/>
+            <column name="operator_ingestion" type="string"/>
+            <column name="service_ott" type="boolean"/>
+            <column name="archivado_lto_original" type="boolean"/>
+            <column name="archivado_lto_edited" type="boolean"/>
+            <column name="observations" type="string"/>
+            <column name="rights_management" type="string"/>
+            <column name="cataloguer_production" type="string"/>
+            <column name="cataloguer_ingest" type="string"/>
+            <column name="cataloguer_master" type="string"/>
+            <column name="url_edition" type="string"/>
+            <column name="url_original" type="string"/>
+            <column name="create_by_id" type="numeric"/>
+            <column name="created_date" type="date"/>
+            <column name="last_modified_by_id" type="numeric"/>
+            <column name="last_modified_date" type="date"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

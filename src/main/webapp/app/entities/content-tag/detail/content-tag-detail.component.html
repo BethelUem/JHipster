@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="contentTag">
+      <h2 data-cy="contentTagDetailsHeading"><span jhiTranslate="proyectoBethelApp.contentTag.detail.title">Content Tag</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ contentTag.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.contentTag.createById">Create By Id</span></dt>
+        <dd>
+          <span>{{ contentTag.createById }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.contentTag.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ contentTag.createdDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.contentTag.lastModifiedById">Last Modified By Id</span></dt>
+        <dd>
+          <span>{{ contentTag.lastModifiedById }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.contentTag.lastModifiedDate">Last Modified Date</span></dt>
+        <dd>
+          <span>{{ contentTag.lastModifiedDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.contentTag.contentId">Content Id</span></dt>
+        <dd>
+          <div *ngIf="contentTag.contentId">
+            <a [routerLink]="['/content', contentTag.contentId?.id, 'view']">{{ contentTag.contentId?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="proyectoBethelApp.contentTag.catalogId">Catalog Id</span></dt>
+        <dd>
+          <div *ngIf="contentTag.catalogId">
+            <a [routerLink]="['/catalog', contentTag.catalogId?.id, 'view']">{{ contentTag.catalogId?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/content-tag', contentTag.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

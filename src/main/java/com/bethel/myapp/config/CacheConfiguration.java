@@ -51,6 +51,12 @@ public class CacheConfiguration {
             createCache(cm, com.bethel.myapp.domain.User.class.getName());
             createCache(cm, com.bethel.myapp.domain.Authority.class.getName());
             createCache(cm, com.bethel.myapp.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.bethel.myapp.domain.Content.class.getName());
+            createCache(cm, com.bethel.myapp.domain.Content.class.getName() + ".catTags");
+            createCache(cm, com.bethel.myapp.domain.ContentTag.class.getName());
+            createCache(cm, com.bethel.myapp.domain.UserProgram.class.getName());
+            createCache(cm, com.bethel.myapp.domain.Catalog.class.getName());
+            createCache(cm, com.bethel.myapp.domain.Catalog.class.getName() + ".contentTags");
             // jhipster-needle-ehcache-add-entry
         };
     }
